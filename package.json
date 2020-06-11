@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build-client": "webpack -p",
-    "deploy": "script/deploy",
+    "build-watch": "webpack -w",
+    "deploy": "./script/deploy.sh",
     "heroku-token": "script/encrypt-heroku-auth-token.js",
     "seed": "node script/seed.js",
     "start": "node server/index.js",
@@ -26,6 +27,7 @@
     "react-dom": "^16.5.2",
     "sequelize": "^4.38.1",
     "simple-git": "^1.122.0",
+    "win-node-env": "^0.4.0",
     "yaml": "^1.6.0"
   },
   "devDependencies": {
