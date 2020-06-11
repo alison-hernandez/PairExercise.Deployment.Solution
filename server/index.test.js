@@ -9,7 +9,7 @@ describe('GET /users', () => {
 
   it ('should actually connect', async (done) => {
     try {
-      await sequelize.authenticate();
+      await db.authenticate();
       console.log('Connection has been established successfully.');
       done();
     } catch (error) {
