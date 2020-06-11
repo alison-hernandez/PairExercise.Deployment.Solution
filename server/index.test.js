@@ -18,7 +18,7 @@ describe('GET /users', () => {
   //   done();
   // })
 
-  it('should return list of users', async () => {
+  it('should return list of users', async (done) => {
     try {
       const res = await request(app).get('/api/users')
       expect(res.status).to.equal(200)
@@ -26,6 +26,6 @@ describe('GET /users', () => {
     } catch (error) {
       console.log(error);
     }
-    
+    done()
   })
 })
