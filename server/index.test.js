@@ -7,13 +7,16 @@ const seedUsers = require('../script/users.json')
 
 describe('GET /users', () => {
 
-  it ('should actually connect', () => {
+  it ('should actually connect', async (done) => {
     try {
       await sequelize.authenticate();
       console.log('Connection has been established successfully.');
+      done();
     } catch (error) {
       console.error('Unable to connect to the database:', error);
+      done();
     }
+    done();
   })
 
   // before(async (done) => {
