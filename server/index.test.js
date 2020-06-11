@@ -19,8 +19,10 @@ describe('GET /users', () => {
   // })
 
   it('should return list of users', async (done) => {
+    console.log("This IT block is running");
     try {
       const res = await request(app).get('/api/users')
+      console.log(res);
       expect(res.status).to.equal(200)
       expect(res.body.length).to.equal(seedUsers.length)
       done()
