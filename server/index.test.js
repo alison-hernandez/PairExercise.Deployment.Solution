@@ -7,16 +7,16 @@ const seedUsers = require('../script/users.json')
 
 describe('GET /users', () => {
 
-  // before(async (done) => {
-  //   try {
-  //     await db.sync({ force: false }) //changed it to false because heroku needs the real db
-  //     await db.models.user.bulkCreate(seedUsers)
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
+  before(async (done) => {
+    try {
+      await db.sync({ force: false }) //changed it to false because heroku needs the real db
+      await db.models.user.bulkCreate(seedUsers)
+    } catch (error) {
+      console.log(error);
+    }
     
-  //   done();
-  // })
+    done();
+  })
 
   it('should return list of users', async (done) => {
     console.log("This IT block is running");
