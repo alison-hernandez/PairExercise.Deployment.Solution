@@ -7,19 +7,28 @@ const seedUsers = require('../script/users.json')
 
 describe('GET /users', () => {
 
-  before(async (done) => {
+  it ('should actually connect', () => {
     try {
-      console.log("BEFORE DB SYNC: ");
-      console.log(db)
-      await db.sync() //changed it to false because heroku needs the real db
-      console.log("AFTER DB SYNC~~~~ ", db);
-      await db.models.user.bulkCreate(seedUsers)
+      await sequelize.authenticate();
+      console.log('Connection has been established successfully.');
     } catch (error) {
-      console.log(error);
+      console.error('Unable to connect to the database:', error);
     }
-    
-    done();
   })
+
+  // before(async (done) => {
+  //   try {
+  //     console.log("BEFORE DB SYNC: ");
+  //     console.log(db)
+  //     await db.sync() //changed it to false because heroku needs the real db
+  //     console.log("AFTER DB SYNC~~~~ ", db);
+  //     await db.models.user.bulkCreate(seedUsers)
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+    
+  //   done();
+  // })
 
   it('should return list of users', async (done) => {
     console.log("This IT block is running");
